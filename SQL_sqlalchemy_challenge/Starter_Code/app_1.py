@@ -67,9 +67,6 @@ date_last_12months= dt.date(2017,8,23) - dt.timedelta(days=365)
 
 results = session.query(Measurement.date,Measurement.prcp).filter(Measurement.date >= date_last_12months).order_by(Measurement.date).all()
 
-session.close()
-
-session.close()
 all_prcp_data =[]
 for date,prcp in results:
     prcp_dict ={}
@@ -77,6 +74,7 @@ for date,prcp in results:
     all_prcp_data.append(prcp_dict)
     
 print.jsonify(all_prcp_data)
+
 
 # run server  
 if __name__ == "__main__":
